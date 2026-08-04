@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Employee Salary Prediction</h1>
+
+        <form action="/predict" method="POST">
+            <label>Job Title</label>
+            <select name="job_title">
+                <option>AI Engineer</option>
+                <option>Data Analyst</option>
+                <option>Business Analyst</option>
+                <option>Data Scientist</option>
+                <option>Frontend Developer</option>
+                <option>Software Engineer</option>
+            </select>
+
+
+            <label>Experience Years</label>
+            <input type="number" name="experience_years" placeholder="Experience Years">
+
+            <label>Education Level</label>
+            <select name="education_level">
+                <option>High School</option>
+                <option>Diploma</option>
+                <option>Bachelor</option>
+                <option>Master</option>
+                <option>PhD</option>
+            </select>
+
+            <label>Skills Count</label>
+            <input type="number" name="skills_count" placeholder="Skills Count">
+
+            <label>Industry</label>
+            <select name="industry">
+                <option>Technology</option>
+                <option>Healthcare</option>
+                <option>Finance</option>
+                <option>Retail</option>
+                <option>Telecom</option>
+                <option>Media</option>
+                <option>Consulting</option>
+                <option>Manufacturing</option>
+            </select>
+
+            <label>Company Size</label>
+            <select name="company_size">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>Enterprise</option>
+                <option>Startup</option>
+            </select>
+
+            <label>Location</label>
+            <select name="location">
+                <option>India</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>UK</option>
+                <option>Australia</option>
+                <option>Singapore</option>
+                <option>Sweden</option>
+                <option>Remote</option>
+            </select>
+
+            <label>Remote Work</label>
+            <select name="remote_work">
+                <option>Yes</option>
+                <option>No</option>
+                <option>Hybrid</option>
+            </select>
+
+
+            <label>Certifications</label>
+            <input type="number" name="certifications" placeholder="Number of Certifications">
+
+            <button>
+                Predict Salary
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
