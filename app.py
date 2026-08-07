@@ -41,10 +41,10 @@ def predict():
         return jsonify({
             "salary": f"₹ {predicted_salary:,.2f}"
         })
-    except Exception as e:
+    except Exception:
         return jsonify({
-            "error": str(e)
-        }), 500
+        "error": "Prediction failed. Please try again."
+    }), 500
 
 if __name__ == "__main__":
     app.run()
