@@ -48,3 +48,14 @@ button {
 button:hover {
     background: #1565C0;
 }
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.result h2 {
+    color: #2E8B57;
+    font-size: 28px;
+    font-weight: bold;
+}
