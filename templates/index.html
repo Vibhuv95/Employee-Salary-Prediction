@@ -6,105 +6,587 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Salary Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body>
-    <div class="container">
+    <!-- ========================= -->
+    <!-- Navigation Bar -->
+    <!-- ========================= -->
 
-        <h1>Employee Salary Prediction</h1>
+    <nav class="navbar">
+        <div class="nav-container">
 
-        <form action="/predict" method="POST">
-            <label>Job Title</label>
-            <select name="job_title">
-                <option>AI Engineer</option>
-                <option>Backend Developer</option>
-                <option>Business Analyst</option>
-                <option>Cloud Engineer</option>
-                <option>Cybersecurity Analyst</option>
-                <option>Data Analyst</option>
-                <option>Data Scientist</option>
-                <option>DevOps Engineer</option>
-                <option>Frontend Developer</option>
-                <option>Machine Learning Engineer</option>
-                <option>Product Manager</option>
-                <option>Software Engineer</option>
-            </select>
+            <a href="#home" class="logo">
+                Employee Salary Prediction
+            </a>
 
-
-            <label>Experience Years</label>
-            <input type="number" name="experience_years" placeholder="Experience Years">
-
-            <label>Education Level</label>
-            <select name="education_level">
-                <option>High School</option>
-                <option>Diploma</option>
-                <option>Bachelor</option>
-                <option>Master</option>
-                <option>PhD</option>
-            </select>
-
-            <label>Skills Count</label>
-            <input type="number" name="skills_count" placeholder="Skills Count">
-
-            <label>Industry</label>
-            <select name="industry">
-                <option>Technology</option>
-                <option>Healthcare</option>
-                <option>Finance</option>
-                <option>Retail</option>
-                <option>Telecom</option>
-                <option>Media</option>
-                <option>Consulting</option>
-                <option>Manufacturing</option>
-                <option>Government</option>
-                <option>Education</option>
-            </select>
-
-            <label>Company Size</label>
-            <select name="company_size">
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-                <option>Enterprise</option>
-                <option>Startup</option>
-            </select>
-
-            <label>Location</label>
-            <select name="location">
-                <option>India</option>
-                <option>USA</option>
-                <option>Canada</option>
-                <option>UK</option>
-                <option>Australia</option>
-                <option>Singapore</option>
-                <option>Sweden</option>
-                <option>Germany</option>
-                <option>Netherlands</option>
-                <option>Remote</option>
-            </select>
-
-            <label>Remote Work</label>
-            <select name="remote_work">
-                <option>Yes</option>
-                <option>No</option>
-                <option>Hybrid</option>
-            </select>
-
-
-            <label>Certifications</label>
-            <input type="number" name="certifications" placeholder="Number of Certifications">
-
-            <button>
-                Predict Salary
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
             </button>
 
-            {% if prediction_text %}
-            <div class="result">
-                <h2>{{ prediction_text }}</h2>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#predict">Predict</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li>
+                    <a href="https://github.com/Vibhuv95" target="_blank">
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================= -->
+    <!-- Hero Section -->
+    <!-- ========================= -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>
+                Employee Salary Prediction
+            </h1>
+            <p>
+                A Machine Learning web application that predicts an employee's annual salary using
+                Linear Regression trained on more than
+                <strong>250,000 employee records.</strong>
+            </p>
+
+            <!-- Statistics -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <h2>250K+</h2>
+                    <span>Employee Records</span>
+                </div>
+                <div class="stat-card">
+                    <h2>96.35%</h2>
+                    <span>R² Score</span>
+                </div>
+                <div class="stat-card">
+                    <h2>9</h2>
+                    <span>Input Features</span>
+                </div>
             </div>
-            {% endif %}
-        </form>
-    </div>
+
+            <!-- Button -->
+            <a href="#predict">
+                <button class="hero-btn">
+                    Try Live Prediction
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!-- Prediction Section -->
+    <!-- ====================================================== -->
+
+    <section id="predict" class="prediction-section">
+        <div class="prediction-container">
+
+            <!-- Left Side -->
+
+            <div class="prediction-info">
+                <h2>Try Live Prediction</h2>
+                <p>
+                    Enter employee information and let the trained
+                    Machine Learning model estimate the expected
+                    annual salary instantly.
+                </p>
+                <div class="info-card">
+                    <h3>Model Used</h3>
+                    <p>Linear Regression</p>
+                </div>
+                <div class="info-card">
+                    <h3>Dataset Size</h3>
+                    <p>250,000 Employee Records</p>
+                </div>
+                <div class="info-card">
+                    <h3>Prediction Accuracy</h3>
+                    <p>R² Score : 96.35%</p>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="prediction-form">
+                <form id="salaryForm">
+                    <div class="form-grid">
+
+                        <!-- Job Title -->
+
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-briefcase" style="color: #2563eb;"></i>
+                                <span>Job Title</span>
+                            </label>
+
+                            <select name="job_title" required>
+                                <option value="" selected disabled>
+                                    Select Job Title
+                                </option>
+                                <option>AI Engineer</option>
+                                <option>Backend Developer</option>
+                                <option>Business Analyst</option>
+                                <option>Cloud Engineer</option>
+                                <option>Cybersecurity Analyst</option>
+                                <option>Data Analyst</option>
+                                <option>Data Scientist</option>
+                                <option>DevOps Engineer</option>
+                                <option>Frontend Developer</option>
+                                <option>Machine Learning Engineer</option>
+                                <option>Product Manager</option>
+                                <option>Software Engineer</option>
+                            </select>
+                        </div>
+
+                        <!-- Experience -->
+
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-user-clock" style="color: #10b981;"></i> Experience</label>
+                            <input type="number" name="experience_years" min="0" max="40" placeholder="Experience(0-40)"
+                                required>
+                        </div>
+
+                        <!-- Education -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-graduation-cap" style="color: #f59e0b;"></i> Education</label>
+                            <select name="education_level" required>
+                                <option value="" selected disabled>
+                                    Select Education
+                                </option>
+                                <option>High School</option>
+                                <option>Diploma</option>
+                                <option>Bachelor</option>
+                                <option>Master</option>
+                                <option>PhD</option>
+                            </select>
+                        </div>
+
+                        <!-- Skills -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-code" style="color: #8b5cf6;"></i> Skills</label>
+                            <input type="number" name="skills_count" min="0" max="19"
+                                title="Enter a value between 0 and 19" placeholder="Skills(0-19)" required>
+                        </div>
+
+                        <!-- Industry -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-building" style="color: #ef4444;"></i> Industry</label>
+                            <select name="industry" required>
+                                <option value="" selected disabled>
+                                    Select Industry
+                                </option>
+                                <option>Technology</option>
+                                <option>Healthcare</option>
+                                <option>Finance</option>
+                                <option>Retail</option>
+                                <option>Telecom</option>
+                                <option>Media</option>
+                                <option>Consulting</option>
+                                <option>Manufacturing</option>
+                                <option>Government</option>
+                                <option>Education</option>
+                            </select>
+                        </div>
+
+                        <!-- Company Size -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-users" style="color: #0ea5e9;"></i> Company Size</label>
+                            <select name="company_size" required>
+                                <option value="" selected disabled>
+                                    Select Company Size
+                                </option>
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                                <option>Enterprise</option>
+                                <option>Startup</option>
+                            </select>
+                        </div>
+
+                        <!-- Location -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-location-dot" style="color: #f97316;"></i> Location</label>
+                            <select name="location" required>
+                                <option value="" selected disabled>
+                                    Select Location
+                                </option>
+                                <option>India</option>
+                                <option>USA</option>
+                                <option>Canada</option>
+                                <option>UK</option>
+                                <option>Australia</option>
+                                <option>Singapore</option>
+                                <option>Sweden</option>
+                                <option>Germany</option>
+                                <option>Netherlands</option>
+                                <option>Remote</option>
+                            </select>
+                        </div>
+
+                        <!-- Remote -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-laptop-house" style="color: #14b8a6;"></i> Remote Work</label>
+                            <select name="remote_work" required>
+                                <option value="" selected disabled>
+                                    Select Work Mode
+                                </option>
+                                <option>Yes</option>
+                                <option>No</option>
+                                <option>Hybrid</option>
+                            </select>
+                        </div>
+
+                        <!-- Certifications -->
+
+                        <div class="input-group">
+                            <label> <i class="fa-solid fa-certificate" style="color: #eab308;"></i>
+                                Certifications</label>
+                            <input type="number" name="certifications" min="0" max="5" placeholder="Certifications(0-5)"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" id="predictBtn" class="predict-btn">
+                        Predict Salary
+                    </button>
+
+                    <div id="loading" style="display:none; text-align:center; margin-top:20px;">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Predicting...
+                    </div>
+
+                    <div class="prediction-result" id="predictionResult" style="display:none;">
+                        <div class="salary-icon">
+                            💰
+                        </div>
+                        <h3>Estimated Annual Salary</h3>
+                        <h1 id="salaryResult"></h1>
+                        <p class="prediction-status">
+                            Prediction completed successfully ✓
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- ABOUT PROJECT -->
+    <!-- ========================================================= -->
+
+    <section id="about" class="about">
+
+        <div class="section-heading">
+            <h2>About the Project</h2>
+            <p>
+                This project predicts an employee's annual salary using
+                Machine Learning. The complete workflow includes data cleaning,
+                exploratory data analysis, feature engineering, model training,
+                evaluation, and deployment with Flask.
+            </p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-card">
+                <h3>📊 Dataset</h3>
+                <p>
+                    • 250,000 Employee Records<br>
+                    • Cleaned & Preprocessed<br>
+                    • 9 Input Features<br>
+                    • Salary Regression Dataset
+                </p>
+                <a href="https://drive.google.com/file/d/1PaQGePrV94Kk0YlURUpYkP6wxSpwhlax/view?usp=sharing"
+                    target="_blank">
+                    View Dataset →
+                </a>
+            </div>
+
+            <div class="about-card">
+                <h3>🤖 Model</h3>
+                <p>
+                    • Linear Regression<br>
+                    • Scikit-Learn Pipeline<br>
+                    • Feature Engineering<br>
+                    • Model Persistence using Joblib
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>🛠️ Technologies</h3>
+                <div class="tech-list">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>Matplotlib</span>
+                    <span>Scikit-Learn</span>
+                    <span>Flask</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h3>📂 Source Code</h3>
+                <p>
+                    Complete source code, notebooks,
+                    preprocessing pipeline and documentation
+                    are available on GitHub.
+                </p>
+                <a href="https://github.com/Vibhuv95" target="_blank">
+                    View GitHub →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MACHINE LEARNING WORKFLOW -->
+    <!-- ========================================================= -->
+
+    <section id="workflow" class="workflow">
+        <div class="section-heading">
+            <h2>Machine Learning Workflow</h2>
+            <p>
+                End-to-End workflow followed while building
+                this Machine Learning application.
+            </p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-icon">📂</div>
+                <div class="timeline-content">
+                    <h3>Dataset</h3>
+                    <p>
+                        Collected and explored the employee salary dataset containing
+                        over 250,000 records.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🧹</div>
+                <div class="timeline-content">
+                    <h3>Data Cleaning</h3>
+                    <p>
+                        Removed inconsistencies, verified data quality, and prepared
+                        the dataset for analysis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">📊</div>
+                <div class="timeline-content">
+                    <h3>Exploratory Data Analysis</h3>
+                    <p>
+                        Visualized distributions and relationships to understand the
+                        data before model training.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">⚙️</div>
+                <div class="timeline-content">
+                    <h3>Feature Engineering</h3>
+                    <p>
+                        Built preprocessing pipelines using SimpleImputer,
+                        StandardScaler and OneHotEncoder.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🤖</div>
+                <div class="timeline-content">
+                    <h3>Model Training</h3>
+                    <p>
+                        Trained Linear Regression, Decision Tree and Random Forest
+                        models using Scikit-Learn.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">📈</div>
+                <div class="timeline-content">
+                    <h3>Model Evaluation</h3>
+                    <p>
+                        Compared models using MAE, MSE, RMSE and R² Score to select
+                        the final model.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🚀</div>
+                <div class="timeline-content">
+                    <h3>Deployment</h3>
+                    <p>
+                        Saved the trained model using Joblib and deployed it with
+                        Flask for real-time salary prediction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MODEL PERFORMANCE -->
+    <!-- ========================================================= -->
+
+    <section id="performance" class="performance">
+        <div class="section-heading">
+            <h2>Model Performance</h2>
+            <p>
+                Final performance of the deployed Linear Regression model.
+            </p>
+        </div>
+        <div class="performance-container">
+            <div class="performance-card">
+                <h3>MAE</h3>
+                <h1>5,436</h1>
+                <p>Mean Absolute Error</p>
+            </div>
+
+            <div class="performance-card">
+                <h3>RMSE</h3>
+                <h1>7,125</h1>
+                <p>Root Mean Squared Error</p>
+            </div>
+
+            <div class="performance-card">
+                <h3>R² Score</h3>
+                <h1>96.35%</h1>
+                <p>Prediction Accuracy</p>
+            </div>
+
+            <div class="performance-card">
+                <h3>Model</h3>
+                <h1>Linear Regression</h1>
+                <p>Final Deployment Model</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2>Employee Salary Prediction</h2>
+                <p>
+                    An end-to-end Machine Learning web application built
+                    using Python, Scikit-Learn, Flask, HTML and CSS.
+                    The application predicts an employee's annual salary
+                    based on professional information.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#predict">Predict Salary</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#workflow">Workflow</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+
+            <div class="footer-links">
+                <h3>Resources</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/Vibhuv95/Employee-Salary-Prediction" target="_blank">
+                            <i class="fa-brands fa-github"></i> GitHub Repository
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://drive.google.com/file/d/1PaQGePrV94Kk0YlURUpYkP6wxSpwhlax/view?usp=sharing"
+                            target="_blank">
+                            <i class="fa-solid fa-chart-column"></i>
+                            Dataset
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Vibhuv95/Employee-Salary-Prediction#readme" target="_blank">
+                            <i class="fa-solid fa-book"></i> Documentation
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-links">
+                <h3>Connect</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/vibhu-gautam8081/" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Vibhuv95" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:vibhugautam8081371284@gmail.com">
+                            <i class="fa-solid fa-envelope"></i>
+                            Gmail
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+
+        <div class="footer-bottom">
+            <p>
+                © 2026 Vibhu Gautam • Employee Salary Prediction • Built with ❤️ using Flask & Scikit-Learn
+            </p>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- Scroll To Top Button -->
+    <!-- ========================================================= -->
+
+    <a href="#home" class="scroll-top">
+        ↑
+    </a>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 
 </html>
