@@ -170,7 +170,6 @@ http://127.0.0.1:5000
 **Vibhu Gautam**
 
 GitHub:
-https://github.com/your-username
-
+https://github.com/Vibhuv95
 LinkedIn:
-https://linkedin.com/in/your-profile
+https://www.linkedin.com/in/vibhu-gautam8081/
