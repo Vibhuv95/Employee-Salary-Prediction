@@ -17,10 +17,16 @@
             <label>Job Title</label>
             <select name="job_title">
                 <option>AI Engineer</option>
-                <option>Data Analyst</option>
+                <option>Backend Developer</option>
                 <option>Business Analyst</option>
+                <option>Cloud Engineer</option>
+                <option>Cybersecurity Analyst</option>
+                <option>Data Analyst</option>
                 <option>Data Scientist</option>
+                <option>DevOps Engineer</option>
                 <option>Frontend Developer</option>
+                <option>Machine Learning Engineer</option>
+                <option>Product Manager</option>
                 <option>Software Engineer</option>
             </select>
 
@@ -50,6 +56,8 @@
                 <option>Media</option>
                 <option>Consulting</option>
                 <option>Manufacturing</option>
+                <option>Government</option>
+                <option>Education</option>
             </select>
 
             <label>Company Size</label>
@@ -70,6 +78,8 @@
                 <option>Australia</option>
                 <option>Singapore</option>
                 <option>Sweden</option>
+                <option>Germany</option>
+                <option>Netherlands</option>
                 <option>Remote</option>
             </select>
 
@@ -87,6 +97,12 @@
             <button>
                 Predict Salary
             </button>
+
+            {% if prediction_text %}
+            <div class="result">
+                <h2>{{ prediction_text }}</h2>
+            </div>
+            {% endif %}
         </form>
     </div>
 </body>
